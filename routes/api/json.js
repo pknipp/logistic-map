@@ -1,7 +1,7 @@
 const router = require('express').Router();
 
-const map = (r, xInitial, nMax) => {
-  let x = xInitial;
+const map = (r, nMax, xInitial) => {
+  let x = xInitial || Math.random();
   let n = 0;
   let xs = [x];
   while (n < nMax) {
@@ -22,10 +22,24 @@ router.get('/html', (req, res) => {
 
 '/:id'
 router.get('/:rNmaxNmin', (req, res) => {
-  let rNmaxNmin = req.params.rNmaxNmin.split("-");
-  let [r, nMax, nMin] = rNmaxNmin.length === 3 ? rNmaxNmin : [...rNmaxNmin, 0];
-  let xs = map(r, 0.5, nMax).slice(nMin);
-  res.json({message: JSON.stringify(xs)});
+  let [error, xs];
+  let params = req.params.rNmaxNmin.split("-");
+  if (!params.all(param => String(Number(param)) === param)) {
+    error = "One param cannot be parsed as a number.";
+  } else {
+    if (params.length !== 2 && params.length !== 3) {
+       error = `There should be 2 or 3 params, but ${params.length} were found.`
+    } else {
+      let [r, nMax, nMin] = params.map(param => Number(param));
+      xs = map(r, nMax, Math.random()).slice(nMin || 0);
+    }
+  }
+  if (error) {
+    res.status(err.status || 500);
+    res.json({error});
+  } else {
+    res.json({message: JSON.stringify(xs)});
+  }
 });
 
 module.exports = router;
