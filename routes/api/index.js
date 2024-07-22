@@ -20,7 +20,7 @@ router.get('', (req, res) => {
 router.get('/json/:rNmaxNmin', (req, res) => {
   let rNmaxNmin = rNmaxNmin.split("_");
   let [r, nMax, nMin] = rNmaxNmin.length === 3 ? rNmaxNmin : [...rNmaxNmin, 0];
-  ls xs = map(r, 0.5, nMax).slice(nMin);
+  let xs = map(r, 0.5, nMax).slice(nMin);
   res.json({message: JSON.stringify(xs)});
 });
 
