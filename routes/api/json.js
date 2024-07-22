@@ -34,9 +34,9 @@ router.get('/:rNmaxNmin', (req, res) => {
       if (r < 0 || r > 4) {
         error = `r needs to be between 0 and 4, but ${r} was found.`;
       } else if (nMax < 0 || !Number.isInteger(nMax)) {
-        error = `nMax needs to be a positive integer, but ${nMax} was found.`;
+        error = `nMax needs to be a non-negative integer, but ${nMax} was found.`;
       } else if (nMin < 0 || !Number.isInteger(nMin)) {
-        error = `nMin needs to be a positive integer, but ${nMin} was found.`;
+        error = `nMin needs to be a non-negative integer, but ${nMin} was found.`;
       }
       xs = map(r, nMax, Math.random()).slice(nMin || 0);
     }
