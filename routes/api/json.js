@@ -24,7 +24,7 @@ router.get('/html', (req, res) => {
 router.get('/:rNmaxNmin', (req, res) => {
   let error, xs;
   let params = req.params.rNmaxNmin.split("-");
-  if (!params.all(param => String(Number(param)) === param)) {
+  if (!params.every(param => String(Number(param)) === param)) {
     error = "One param cannot be parsed as a number.";
   } else {
     if (params.length !== 2 && params.length !== 3) {
