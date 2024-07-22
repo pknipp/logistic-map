@@ -23,7 +23,7 @@ router.get('/html', (req, res) => {
 '/:id'
 router.get('/:rNmaxNmin', (req, res) => {
   let error, xs;
-  let params = req.params.rNmaxNmin.split("-");
+  let params = req.params.rNmaxNmin.split("|");
   if (!params.every(param => String(Number(param)) === param)) {
     error = "One param cannot be parsed as a number.";
   } else {
@@ -31,6 +31,13 @@ router.get('/:rNmaxNmin', (req, res) => {
        error = `There should be 2 or 3 params, but ${params.length} were found.`
     } else {
       let [r, nMax, nMin] = params.map(param => Number(param));
+      if (r < 0 || r > 4) {
+        error = `r needs to be between 0 and 4, but ${r} was found.`;
+      } else if (nMax < 0 || !nMax.isInteger()) {
+        error = `nMax needs to be a positive integer, but ${nMax} was found.`;
+      } else if (nMin < 0 || !nMin.isInteger()) {
+        error = `nMin needs to be a positive integer, but ${nMin} was found.`;
+      }
       xs = map(r, nMax, Math.random()).slice(nMin || 0);
     }
   }
