@@ -18,7 +18,7 @@ router.get('/instructions', (req, res) => {
 
 '/:id'
 router.get('/:rNmaxNmin', (req, res) => {
-  let rNmaxNmin = rNmaxNmin.split("-");
+  let rNmaxNmin = req.params.rNmaxNmin.split("-");
   let [r, nMax, nMin] = rNmaxNmin.length === 3 ? rNmaxNmin : [...rNmaxNmin, 0];
   let xs = map(r, 0.5, nMax).slice(nMin);
   res.json({message: JSON.stringify(xs)});
