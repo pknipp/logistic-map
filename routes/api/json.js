@@ -42,7 +42,7 @@ router.get('/:rNmaxNmin', (req, res) => {
     }
   }
   if (error) {
-    res.status(err.status || 500);
+    res.status(500);
     res.json({error});
   } else {
     res.json({message: JSON.stringify(xs)});
