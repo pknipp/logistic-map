@@ -16,6 +16,10 @@ router.get('/instructions', (req, res) => {
   res.json({message: "Instructions go here."});
 });
 
+router.get('/html', (req, res) => {
+  res.json({message: "html output goes here."});
+});
+
 '/:id'
 router.get('/:rNmaxNmin', (req, res) => {
   let rNmaxNmin = req.params.rNmaxNmin.split("-");
@@ -24,7 +28,4 @@ router.get('/:rNmaxNmin', (req, res) => {
   res.json({message: JSON.stringify(xs)});
 });
 
-router.get('/html', (req, res) => {
-  res.json({message: "html output goes here."});
-});
 module.exports = router;
