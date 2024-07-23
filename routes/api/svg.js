@@ -15,11 +15,12 @@ router.get('/:rNmaxNmin', (req, res) => {
     svg.el = `${svg.el}<g transform="translate(${svg.padding.x}, ${svg.padding.y})">`;
     svg.el = `${svg.el}<rect height=${rect.size.y} width=${rect.size.x} fill="transparent" stroke="black" />`;
     let n = ys.length;
-    let r = rect.size.x / (n - 1) / 2 * 2 ** (rFactor < 3 ? 0 : rFactor < 3.44949 ? 1 : rFactor < 3.54409 ? 2 : 3);
+    let r = rect.size.x / n / 2 * 2 ** (rFactor < 3 ? 0 : rFactor < 3.44949 ? 1 : rFactor < 3.54409 ? 2 : 3);
+    rect.padding = r;
     ys.forEach((y, i) => {
       svg.el = `${svg.el}<circle
-        cx=${i * rect.size.x / (n - 1)}
-        cy=${rect.size.y * (1 - y)}
+        cx=${rect.padding + i * (rect.size.x - 2 * rect.padding) / (n - 1)}
+        cy=${(rect.size.y - rect.padding - y * (rect.size.y - rect.padding)}
         r=${r}
       />`;
     })
