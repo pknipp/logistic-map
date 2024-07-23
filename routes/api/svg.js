@@ -14,7 +14,7 @@ router.get('/:rNmaxNmin', (req, res) => {
     svg.el = `${svg.el}<g transform="translate(${svg.padding.x}, ${svg.padding.y})">`;
     svg.el = `${svg.el}<rect height=${rect.size.y} width=${rect.size.x} fill="transparent" stroke="black" />`;
     let n = ys.length;
-    let r = rect.size.x / (n - 1);
+    let r = rect.size.x / (n - 1) / 2;
     ys.forEach((y, i) => {
       svg.el = `${svg.el}<circle
         cx=${i * rect.size.x / (n - 1)}
