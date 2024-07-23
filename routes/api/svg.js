@@ -8,8 +8,9 @@ router.get('/:rNmaxNmin', (req, res) => {
     res.status(500);
     res.json({error});
   } else {
+    let svg = {size: {x: 900, y: 1600}, padding: {x: 100, y: 100}};
     let top = "<p>Svg goes below here</p>";
-    let svgStart = '<svg height="900" width="1600">';
+    let svgStart = `<svg height=${svg.size.y} width=${svg.size.x}>`;
     let dot = '<circle cx="800" cy="450" r="800"/>';
     res.send(`${svgStart}${dot}</svg>`);
     // res.json({message: "svg output goes here."});
