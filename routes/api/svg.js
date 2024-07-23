@@ -2,7 +2,7 @@ const router = require('express').Router();
 const {parseParams, map} = require("./utils");
 
 router.get('/:rNmaxNmin', (req, res) => {
-  let params = req.params.rNmaxNmin.split("|");
+  let params = req.params.rNmaxNmin.split(":");
   let [error, xs] = parseParams(params);
   if (error) {
     res.status(500);
@@ -13,10 +13,10 @@ router.get('/:rNmaxNmin', (req, res) => {
     svg.el = `<svg height=${svg.size.y} width=${svg.size.x}>`;
     svg.el = `${svg.el}<g transform="translate(${svg.padding.x}, ${svg.padding.y})">`;
     svg.el = `${svg.el}<rect height=${rect.size.y} width=${rect.size.x} fill="transparent" stroke="black" />`;
+
     svg.el = `${svg.el}</g></svg>`;
     // let dot = '<circle cx="800" cy="450" r="800"/>';
     res.send(svg.el);
-    // res.json({message: "svg output goes here."});
   }
 });
 
