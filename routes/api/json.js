@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const {parseParams, map} = require("/utils");
+const {parseParams, map} = require("./utils");
 
 // const parseParams = params => {
   // let error, xs;
@@ -26,7 +26,7 @@ const {parseParams, map} = require("/utils");
   // }
   // return [error, xs];
 // }
-// 
+//
 // const map = (r, nMax, xInitial) => {
   // let x = xInitial || Math.random();
   // let n = 0;
