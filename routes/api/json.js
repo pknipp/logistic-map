@@ -12,10 +12,6 @@ const map = (r, nMax, xInitial) => {
   return xs;
 }
 
-// router.get('/instructions', (req, res) => {
-  // res.json({message: "Instructions go here."});
-// });
-
 router.get('/html', (req, res) => {
   res.json({message: "html output goes here."});
 });
