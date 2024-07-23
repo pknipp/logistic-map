@@ -20,7 +20,7 @@ router.get('/:rNmaxNmin', (req, res) => {
     ys.forEach((y, i) => {
       svg.el = `${svg.el}<circle
         cx=${rect.padding + i * (rect.size.x - 2 * rect.padding) / (n - 1)}
-        cy=${(rect.size.y - rect.padding - y * (rect.size.y - rect.padding)}
+        cy=${rect.size.y - rect.padding - y * (rect.size.y - 2 * rect.padding)}
         r=${r}
       />`;
     })
