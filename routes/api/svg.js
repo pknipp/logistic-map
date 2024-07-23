@@ -13,7 +13,7 @@ router.get('/:rNmaxNmin', (req, res) => {
     svg.el = `<svg height=${svg.size.y} width=${svg.size.x}>`;
     svg.el = `${svg.el}<g transform="translate(${svg.padding.x}, ${svg.padding.y})">`;
     svg.el = `${svg.el}<rect height=${rect.size.y} width=${rect.size.x} fill="transparent" stroke="black" />`;
-    let n = xs.length;
+    let n = ys.length;
     let r = rect.width / (n - 1);
     ys.forEach((y, i) => {
       svg.el = `${svg.el}<circle
