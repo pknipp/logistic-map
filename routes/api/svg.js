@@ -8,7 +8,7 @@ router.get('/:rNmaxNmin', (req, res) => {
     res.status(500);
     res.json({error});
   } else {
-    res.json({message: JSON.stringify(xs)});
+    res.json({message: "svg output goes here."});
   }
 });
 
