@@ -19,7 +19,7 @@ router.get('/:rNmaxNmin', (req, res) => {
           r="50"
         />
       </svg>';
-    res.send("<p>Svg stuff</p>");
+    res.send(svg);
     // res.json({message: "svg output goes here."});
   }
 });
