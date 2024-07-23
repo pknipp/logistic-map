@@ -16,7 +16,7 @@ router.get('/:rNmaxNmin', (req, res) => {
     svg.el = `${svg.el}<rect height=${rect.size.y} width=${rect.size.x} fill="transparent" stroke="black" />`;
     let n = ys.length;
     let r = rect.size.x / n / 2 * 2 ** (rFactor < 3 ? 0 : rFactor < 3.44949 ? 1 : rFactor < 3.54409 ? 2 : 3);
-    console.log("rFactor = ", rFactor);
+    console.log("r = ", r);
     rect.padding = r;
     ys.forEach((y, i) => {
       svg.el = `${svg.el}<circle
