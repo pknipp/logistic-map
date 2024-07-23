@@ -3,6 +3,7 @@ const {parseParams, map} = require("./utils");
 
 router.get('/:rNmaxNmin', (req, res) => {
   let params = req.params.rNmaxNmin.split(":");
+  let rFactor = Number(params[0]);
   let [error, ys] = parseParams(params);
   if (error) {
     res.status(500);
@@ -14,7 +15,7 @@ router.get('/:rNmaxNmin', (req, res) => {
     svg.el = `${svg.el}<g transform="translate(${svg.padding.x}, ${svg.padding.y})">`;
     svg.el = `${svg.el}<rect height=${rect.size.y} width=${rect.size.x} fill="transparent" stroke="black" />`;
     let n = ys.length;
-    let r = rect.size.x / (n - 1) / 2;
+    let r = rect.size.x / (n - 1) / 2 ** (rFactor < 3 ? 0 : rFactor < 3.44949 ? 1 : rFactor < 3.54409 ? 2 : 3);
     ys.forEach((y, i) => {
       svg.el = `${svg.el}<circle
         cx=${i * rect.size.x / (n - 1)}
