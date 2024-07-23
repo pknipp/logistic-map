@@ -11,6 +11,7 @@ const parseParams = params => {
             error = `There should be 2 or 3 params, but ${params.length} were found.`
         } else {
             let [r, nMax, nMin] = params.map(param => Number(param));
+            nMin = nMin || 0;
             if (r < 0 || r > 4) {
               error = `r needs to be between 0 and 4, but ${r} was found.`;
             } else if (nMax < 0 || !Number.isInteger(nMax)) {
