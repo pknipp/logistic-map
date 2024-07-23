@@ -1,5 +1,5 @@
 const parseParams = params => {
-    let error, xs;
+    let error, ys;
     for (const param of params) {
         if (String(Number(param)) !== param) {
             error = `One param (${param}) cannot be parsed as a number.`;
@@ -19,22 +19,22 @@ const parseParams = params => {
             } else if (nMin < 0 || !Number.isInteger(nMin)) {
               error = `nMin needs to be a non-negative integer, but ${nMin} was found.`;
             }
-            xs = map(r, nMax, Math.random()).slice(nMin || 0);
+            ys = map(r, nMax, Math.random()).slice(nMin || 0);
         }
     }
-    return [error, xs];
+    return [error, ys];
 }
 
-const map = (r, nMax, xInitial) => {
-    let x = xInitial || Math.random();
+const map = (r, nMax, yInitial) => {
+    let y = yInitial || Math.random();
     let n = 0;
-    let xs = [x];
+    let ys = [y];
     while (n < nMax) {
         n++;
-        x = r * x * (1 - x);
-        xs.push(x);
+        y = r * y * (1 - y);
+        ys.push(y);
     }
-    return xs;
+    return ys;
 }
 
 module.exports = {parseParams, map};
