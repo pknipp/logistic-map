@@ -1,7 +1,7 @@
 const router = require('express').Router();
 
 const parseParams = params = {
-  let error, xs;
+  let [error, xs] = ["", []];
   for (const param of params) {
     if (String(Number(param)) !== param) {
       error = `One param (${param}) cannot be parsed as a number.`;
