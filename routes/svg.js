@@ -2,7 +2,7 @@ const router = require('express').Router();
 const {parseParams, map} = require("./utils");
 
 router.get('/:rNmaxNmin', (req, res) => {
-  let params = req.params.rNmaxNmin.split(":");
+  let params = req.params.rNmaxNmin.split("-");
   let rFactor = Number(params[0]);
   let [error, ys] = parseParams(params);
   if (error) {
@@ -18,16 +18,16 @@ router.get('/:rNmaxNmin', (req, res) => {
     // double size of dots w/each period-doubling transition
     let r = rect.size.x / 2 / (1 + (n - 1) / 2 ** (rFactor < 3 ? 0 : rFactor < 3.44949 ? 1 : rFactor < 3.54409 ? 2 : 3));
     rect.padding = r;
-    ys.forEach((y, i) => {
-      svg.el = `${svg.el}<circle
+    let data = ys.map((y, i) => (
+      `<circle
         cx=${rect.padding + i * (rect.size.x - 2 * rect.padding) / (n - 1) }
         cy=${rect.size.y - rect.padding - y * (rect.size.y - 2 * rect.padding)}
         r=${r}
         fill="transparent"
         stroke="black"
       />`;
-    })
-    svg.el = `${svg.el}</g></svg>`;
+    );
+    svg.el = `${svg.el}<g>${data}</g></g></svg>`;
     res.send(svg.el);
   }
 });
