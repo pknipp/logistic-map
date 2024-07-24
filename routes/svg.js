@@ -26,7 +26,7 @@ router.get('/:rNmaxNmin', (req, res) => {
     let d = "";
     xys.forEach(([x, y], i) => {
       points.push(
-        `<circle cx=${x} cy=${y} r=${r} fill="transparent" stroke="black"/>`,
+        `<circle cx=${x} cy=${y} r=${r} fill="transparent" stroke="black"/>`
       );
       d = `${d}${i ? "L" : "M"}${x} ${y}`;
     });
