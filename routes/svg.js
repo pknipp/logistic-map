@@ -31,7 +31,7 @@ router.get('/:rNmaxNmin', (req, res) => {
       console.log("d = ", d);
       // d.push(i ? 'L' : 'M', String(x), ' ', String(y));
       // d = `${d} ${i ? "L" : "M"} ${String(x)} ${String(y)}`;
-      d += (i ? "L" : "M") + x + " " + y;
+      d += (i ? "L" : "M") + String(x) + " " + String(y);
     });
     console.log("d = ", d);
     // console.log("d.join('') = ", d.join(''));
