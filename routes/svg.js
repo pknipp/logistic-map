@@ -29,12 +29,12 @@ router.get('/:rNmaxNmin', (req, res) => {
         `<circle cx=${x} cy=${y} r=${r} fill="transparent" stroke="black"/>`
       );
       console.log("d = ", d);
-      d.push(i ? "L" : "M", String(x), " ", String(y));
+      d.push(i ? 'L' : 'M', String(x), ' ', String(y));
       // d = `${d} ${i ? "L" : "M"} ${String(x)} ${String(y)}`;
     });
     console.log("d = ", d);
-    console.log("d.join('') = ", d.join(""));
-    let path = `<path d=${d.join("")} />`;
+    console.log("d.join('') = ", d.join(''));
+    let path = `<path d=${d.join('')} />`;
     svg.el = `${svg.el}<g>${points.join("")}</g>${path}</svg>`;
     res.send(svg.el);
   }
