@@ -7,8 +7,7 @@ instructions:
     inputs: 0 <= r <= 4, nMax, yInitial [|| Math.random()], nMin (|| 0)
 json: anything else needed?
 svg:
-summary of inputs: r, nMax, yInitial (|| random), nMin (|| 0)
+summary of inputs: r, n (= nMax - nMin), yInitial
 additional instructions? (e.g., toggling lines' visibility)
-contain data in a g-element
 optimize the dot radius (calculate min distance between dots, and use accordingly?)
 connect lines by dots, and control their visibility with a toggle
