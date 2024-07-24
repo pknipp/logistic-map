@@ -30,7 +30,7 @@ router.get('/:rNmaxNmin', (req, res) => {
         fill="transparent"
         stroke="black"
       />`
-    );
+    ));
     svg.el = `${svg.el}<g>${points}</g></g></svg>`;
     res.send(svg.el);
   }
