@@ -15,8 +15,8 @@ router.get('/:rNmaxNmin', (req, res) => {
     svg.el = `${svg.el}<g transform="translate(${svg.padding.x}, ${svg.padding.y})">`;
     svg.el = `${svg.el}<rect height=${rect.size.y} width=${rect.size.x} fill="transparent" stroke="black" />`;
     let n = ys.length;
+    // double size of dots w/each period-doubling transition
     let r = rect.size.x / 2 / (1 + (n - 1) / 2 ** (rFactor < 3 ? 0 : rFactor < 3.44949 ? 1 : rFactor < 3.54409 ? 2 : 3));
-    console.log("r = ", r);
     rect.padding = r;
     ys.forEach((y, i) => {
       svg.el = `${svg.el}<circle
@@ -27,9 +27,7 @@ router.get('/:rNmaxNmin', (req, res) => {
         stroke="black"
       />`;
     })
-
     svg.el = `${svg.el}</g></svg>`;
-    // let dot = '<circle cx="800" cy="450" r="800"/>';
     res.send(svg.el);
   }
 });
