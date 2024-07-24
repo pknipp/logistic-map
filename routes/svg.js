@@ -28,6 +28,7 @@ router.get('/:rNmaxNmin', (req, res) => {
       points.push(
         `<circle cx=${x} cy=${y} r=${r} fill="transparent" stroke="black"/>`
       );
+      console.log("d = ", d);
       d = `${d}${i ? "L" : "M"}${x} ${y}`;
     });
     let path = `<path d=${d} />`;
