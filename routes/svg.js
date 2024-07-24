@@ -34,7 +34,7 @@ router.get('/:rNmaxNmin', (req, res) => {
     });
     console.log("d = ", d);
     console.log("d.join('') = ", d.join(''));
-    let path = `<path d=${d.join('')} />`;
+    let path = '<path d="M200 350L400 260L600 346.4L800 260.13824L1000 346.13478304317437L1200 260.1593589559822" />'; //${d.join('')} />`;
     svg.el = `${svg.el}<g>${points.join("")}</g>${path}</svg>`;
     res.send(svg.el);
   }
