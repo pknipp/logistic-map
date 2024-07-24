@@ -8,6 +8,8 @@ instructions:
 json: anything else needed?
 svg:
 summary of inputs: r, n (= nMax - nMin), yInitial
-additional instructions? (e.g., toggling lines' visibility)
+additional instructions:
+    toggle lines' visibility (and horiz lines for n-cycles?)
+    The size is optimized for Chrome's mid-magnification on my MacBookPro.
 optimize the dot radius (calculate min distance between dots, and use accordingly?)
 connect lines by dots, and control their visibility with a toggle
