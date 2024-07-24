@@ -25,7 +25,7 @@ router.get('/:rNmaxNmin', (req, res) => {
         r=${r}
         fill="transparent"
         stroke="black"
-      />`;
+      />`
     );
     svg.el = `${svg.el}<g>${data}</g></g></svg>`;
     res.send(svg.el);
