@@ -18,16 +18,20 @@ router.get('/:rNmaxNmin', (req, res) => {
     // double size of dots w/each period-doubling transition
     let r = rect.size.x / 2 / (1 + (n - 1) / 2 ** (rFactor < 3 ? 0 : rFactor < 3.44949 ? 1 : rFactor < 3.54409 ? 2 : 3));
     rect.padding = r;
-    let data = ys.map((y, i) => (
+    let xys = ys.map((y, i) => ([
+      rect.padding + i * (rect.size.x - 2 * rect.padding) / (n - 1),
+      rect.size.y - rect.padding - y * (rect.size.y - 2 * rect.padding),
+    ]));
+    let points = xys.map(([x, y]) => (
       `<circle
-        cx=${rect.padding + i * (rect.size.x - 2 * rect.padding) / (n - 1) }
-        cy=${rect.size.y - rect.padding - y * (rect.size.y - 2 * rect.padding)}
+        cx=${x}
+        cy=${y}
         r=${r}
         fill="transparent"
         stroke="black"
       />`
-    ));
-    svg.el = `${svg.el}<g>${data}</g></g></svg>`;
+    );
+    svg.el = `${svg.el}<g>${points}</g></g></svg>`;
     res.send(svg.el);
   }
 });
