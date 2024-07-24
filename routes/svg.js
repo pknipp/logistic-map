@@ -23,18 +23,19 @@ router.get('/:rNmaxNmin', (req, res) => {
       rect.size.y - rect.padding - y * (rect.size.y - 2 * rect.padding),
     ]));
     let points = [];
-    let d = [];
+    let d = ""; //[];
     xys.forEach(([x, y], i) => {
       points.push(
         `<circle cx=${x} cy=${y} r=${r} fill="transparent" stroke="black"/>`
       );
       console.log("d = ", d);
-      d.push(i ? 'L' : 'M', String(x), ' ', String(y));
+      // d.push(i ? 'L' : 'M', String(x), ' ', String(y));
       // d = `${d} ${i ? "L" : "M"} ${String(x)} ${String(y)}`;
+      d += (i ? "L" : "M") + x + " " + y;
     });
     console.log("d = ", d);
     console.log("d.join('') = ", d.join(''));
-    let path = `<path d="M200 350L400 260L600 346.4L800 260.13824L1000 346.13478304317437L1200 260.1593589559822" stroke="black" fill="transparent" />`; //${d.join('')} />`;
+    let path = `<path d=${d} stroke="black" fill="transparent" />`; //${d.join('')} />`;
     console.log("path = ", path);
     svg.el = `${svg.el}<g>${points.join("")}</g>${path}</svg>`;
     res.send(svg.el);
