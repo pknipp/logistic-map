@@ -32,7 +32,7 @@ router.get('/:rNmaxNmin', (req, res) => {
       d = `${d} ${i ? "L" : "M"} ${String(x)} ${String(y)}`;
     });
     let path = `<path d=${d} />`;
-    svg.el = `${svg.el}<g>${points}${path}</g></g></svg>`;
+    svg.el = `${svg.el}<g>${points.join("")}${path}</g></g></svg>`;
     res.send(svg.el);
   }
 });
