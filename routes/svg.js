@@ -28,7 +28,7 @@ router.get('/:rNmaxNmin', (req, res) => {
       points.push(
         `<circle cx=${x} cy=${y} r=${r} fill="transparent" stroke="black"/>`
       );
-      d += (i ? "L" : "M") + String(x) + "," + String(y);
+      d += (i ? "L" : "M") + x + "," + y;
     });
     let path = '<path d=' + d + ' stroke="black" fill="transparent" />';
     svg.el = `${svg.el}<g>${points.join("")}</g>${path}</svg>`;
