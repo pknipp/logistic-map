@@ -7,26 +7,28 @@ const parseParams = params => {
         }
     }
     if (!error) {
-        if (params.length !== 2 && params.length !== 3) {
-            error = `There should be 2 or 3 params, but ${params.length} were found.`
+        let n = params.length;
+        if (n !== 2 && n !== 3 && n !== 4) {
+            error = `There should be 2, 3, or 4 params, but ${n} were found.`
         } else {
-            let [r, nMax, nMin] = params.map(param => Number(param));
-            nMin = nMin || 0;
-            if (r < 0 || r > 4) {
-              error = `r needs to be between 0 and 4, but ${r} was found.`;
-            } else if (nMax < 0 || !Number.isInteger(nMax)) {
-              error = `nMax needs to be a non-negative integer, but ${nMax} was found.`;
-            } else if (nMin < 0 || !Number.isInteger(nMin)) {
-              error = `nMin needs to be a non-negative integer, but ${nMin} was found.`;
+            let [r, nMax, yInit, nMin] = params.map(param => Number(param));
+            if (yInit === undefined) {
+                yInit = Math.random();
             }
-            ys = map(r, nMax, Math.random()).slice(nMin || 0);
+            if (r > 4) {
+              error = `r cannot exceed 4, but ${r} was found.`;
+            } else if (!Number.isInteger(nMax)) {
+              error = `nMax needs to be an integer, but ${nMax} was found.`;
+            } else if (!Number.isInteger(nMin)) {
+              error = `nMin needs to be an integer, but ${nMin} was found.`;
+            }
+            ys = map(r, nMax, yInit).slice(nMin || 0);
         }
     }
     return [error, ys];
 }
 
-const map = (r, nMax, yInitial) => {
-    let y = yInitial || Math.random();
+const map = (r, nMax, y) => {
     let n = 0;
     let ys = [y];
     while (n < nMax) {
