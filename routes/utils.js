@@ -12,6 +12,7 @@ const parseParams = params => {
             error = `There should be 2, 3, or 4 params, but ${n} were found.`
         } else {
             let [r, nMax, yInit, nMin] = params.map(param => Number(param));
+            nMin = nMin || 0;
             if (yInit === undefined) {
                 yInit = Math.random();
             }
