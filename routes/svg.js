@@ -32,7 +32,7 @@ router.get('/:rNmaxNmin', (req, res) => {
       let tick = `<line x2="-10" stroke="black" >`;
       yTicks.push(`${g}${tick}</g>`)
     }
-    svg.el = `{svg.el}<g>${yTicks}</g>`;
+    svg.el = `${svg.el}<g>${yTicks}</g>`;
     let xys = ys.map((y, i) => ([
       rect.padding + i * (rect.size.x - 2 * rect.padding) / (n - 1),
       rect.size.y - rect.padding - y * (rect.size.y - 2 * rect.padding),
