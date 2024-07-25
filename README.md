@@ -1,5 +1,6 @@
 To do:
-slash route: include r-values of boundaries?
+put info on portfolio
+slash route: include r-values of boundaries or r-dep trajectories of cycles?
 json: anything else needed?
 svg:
 1) summary of inputs: r, n (= nMax - nMin), yInitial
