@@ -29,7 +29,7 @@ router.get('/:rNmaxNmin', (req, res) => {
     for (let i = 0; i <= nYTicks; i++) {
       y = rect.size.y - rect.padding - i * (rect.size.y - 2 * rect.padding) / nYTicks;
       let g = `<g transform="translate(0, ${y})">`;
-      let tick = `<line x2="-10" stroke="black" >`;
+      let tick = `<line x2="-10" stroke="black" />`;
       let number = `<text x="-20" stroke="black" text-anchor="middle" dy="0.32em">${i / nYTicks}</text>`;
       yTicks.push(`${g}${tick}${number}</g>`)
     }
