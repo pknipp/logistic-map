@@ -2,7 +2,7 @@ To do:
 slash route: include r-values of boundaries or r-dep trajectories of cycles?
 json: anything else needed?
 svg:
-1) summary of inputs: r, n (= nMax - nMin), yInitial
+1) Put ticks and label on horizontal axis, and put label on vertical one.
 2) additional instructions:
     toggle lines' visibility (and horiz lines for n-cycles?)
     The size is optimized for Chrome's mid-magnification on my MacBookPro.
