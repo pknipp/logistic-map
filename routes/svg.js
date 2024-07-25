@@ -24,6 +24,15 @@ router.get('/:rNmaxNmin', (req, res) => {
     // double size of dots w/each period-doubling transition
     let r = rect.size.x / 2 / (1 + (n - 1) / 2 ** (rFactor < 3 ? 0 : rFactor < 3.44949 ? 1 : rFactor < 3.54409 ? 2 : 3));
     rect.padding = r;
+    let yTicks = [];
+    let nYTicks = 10;
+    for (let i = 0; i <= nYTicks; i++) {
+      y = rect.size.y - rect.padding - i * (rect.size.y - 2 * rect.padding) / nYTicks;
+      let g = `<g transform="translate(0, ${y})">`;
+      let tick = `<line x2="-10" stroke="black" >`;
+      yTicks.push(`${g}${tick}</g>`)
+    }
+    svg.el = `{svg.el}<g>${yTicks}</g>`;
     let xys = ys.map((y, i) => ([
       rect.padding + i * (rect.size.x - 2 * rect.padding) / (n - 1),
       rect.size.y - rect.padding - y * (rect.size.y - 2 * rect.padding),
