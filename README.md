@@ -1,5 +1,4 @@
 To do:
-put info on portfolio
 slash route: include r-values of boundaries or r-dep trajectories of cycles?
 json: anything else needed?
 svg:
