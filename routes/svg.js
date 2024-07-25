@@ -1,13 +1,18 @@
 const router = require('express').Router();
 const {parseParams, map} = require("./utils");
 
+router.get('', (req, res) => {
+  res.status(500);
+  res.json(`<p>"You neglected to include inputs in the url."</p>`);
+}
+
 router.get('/:rNmaxNmin', (req, res) => {
   let params = req.params.rNmaxNmin.split("-");
   let rFactor = Number(params[0]);
   let [error, ys] = parseParams(params);
   if (error) {
     res.status(500);
-    res.json({error});
+    res.send(`<p>${error}</p>`);
   } else {
     let svg = {size: {x: 1600, y: 900}, padding: {x: 100, y: 100}};
     let rect = {size: {x: svg.size.x - 2 * svg.padding.x, y: svg.size.y - 2 * svg.padding.y}};
