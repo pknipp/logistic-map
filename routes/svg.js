@@ -16,7 +16,7 @@ router.get('/:rNmaxNmin', (req, res) => {
   } else {
     let svg = {size: {x: 1600, y: 900}, padding: {x: 100, y: 100}};
     let rect = {size: {x: svg.size.x - svg.padding.x, y: svg.size.y - svg.padding.y}};
-    let inputs = `<b>Inputs:</b><ul><li> growth-rate parameter <I>r</I>: ${rFactor}</li><li> number of generations rendered: ${Number(params[1]) - (Number?.(params[2]) || 0)}</li></ul>`;
+    let inputs = `<b>Inputs:</b><ul><li> growth-rate parameter <I>r</I>: ${rFactor}</li><li> number of generations rendered: ${Number(params[1]) - (Number?.(params[3]) || 0)}</li></ul>`;
     svg.el = `<svg height=${svg.size.y} width=${svg.size.x}>`;
     svg.el = `${svg.el}<g transform="translate(${svg.padding.x}, 0)">`;
     svg.el = `${svg.el}<rect height=${rect.size.y} width=${rect.size.x} fill="transparent" stroke="black" />`;
