@@ -20,6 +20,9 @@ const parseParams = params => {
               error = `r cannot exceed 4, but ${r} was found.`;
             } else if (!Number.isInteger(nMax)) {
               error = `nMax needs to be an integer, but ${nMax} was found.`;
+            } else if (Number(yInit) > 1) {
+                error = `Initial population ratio cannot exceed 1, but ${yInit} was found.`
+            }
             } else if (!Number.isInteger(nMin)) {
               error = `nMin needs to be an integer, but ${nMin} was found.`;
             }
