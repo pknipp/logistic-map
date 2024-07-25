@@ -3,7 +3,7 @@ const {parseParams, map} = require("./utils");
 
 router.get('', (req, res) => {
   res.status(500);
-  res.send(`<p>"You neglected to include inputs in the url."</p>`);
+  res.send(`<p>You neglected to include inputs in the url.</p>`);
 });
 
 router.get('/:rNmaxNmin', (req, res) => {
