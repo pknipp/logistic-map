@@ -80,7 +80,8 @@ router.get('/:rNmaxNmin', (req, res) => {
       d += `${i ? "L" : "M"}${x},${y}`;
     });
     let path = '<path d=' + d + ' stroke="black" fill="transparent" />';
-    svg.el = `${svg.el}<g>${points}</g>${path}</g></svg>`;
+    svg.el = `${svg.el}<g>${points}</g>${path}`;
+    svg.el = `${svg.el}</g></svg>`;
     res.send(svg.el);
   }
 });
