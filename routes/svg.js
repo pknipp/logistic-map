@@ -31,6 +31,7 @@ router.get('/:rNmaxNmin', (req, res) => {
       </g>
     `;
     svg.el = `${svg.el}${title}`;
+    console.log("svg.el = ", svg.el);
     svg.el = `${svg.el}<rect height=${rect.size.y} width=${rect.size.x} fill="transparent" stroke="black" />`;
     let n = ys.length;
     // double size of dots w/each period-doubling transition
