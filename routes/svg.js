@@ -59,7 +59,7 @@ router.get('/:rNmaxNmin', (req, res) => {
     });
     let path = '<path d=' + d + ' stroke="black" fill="transparent" />';
     svg.el = `${svg.el}<g>${points}</g>${path}</svg>`;
-    res.send(inputs + svg.el);
+    res.send(svg.el);
   }
 });
 
