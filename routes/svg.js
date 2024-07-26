@@ -98,7 +98,7 @@ router.get('/:rNmaxNmin', (req, res) => {
             transform="translate(${x}, 0)"
           >
             <line y2="10" stroke="black" />
-            <text y="25" text-anchor="middle" dy="0.32em">${x}</text>
+            <text y="25" text-anchor="middle" dy="0.32em">${i}</text>
           </g>
         `);
       }
