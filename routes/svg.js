@@ -16,8 +16,15 @@ router.get('/:rNmaxNmin', (req, res) => {
   } else {
     let svg = {size: {x: 1600, y: 900}, padding: {x: 100, y: 100}};
     let rect = {size: {x: svg.size.x - svg.padding.x, y: svg.size.y - 2 * svg.padding.y}};
-    svg.el = `<svg height=${svg.size.y} width=${svg.size.x}>`;
-    svg.el = `${svg.el}<g transform="translate(${svg.padding.x}, ${svg.padding.y})">`;
+    svg.el = `
+      <svg
+        height=${svg.size.y}
+        width=${svg.size.x}
+      >`;
+    svg.el += `
+      <g
+        transform="translate(${svg.padding.x}, ${svg.padding.y})"
+      >`;
     let title = `
       <g
         transform="translate(${rect.size.x / 2}, -20)"
@@ -98,7 +105,7 @@ router.get('/:rNmaxNmin', (req, res) => {
             transform="translate(${x}, 0)"
           >
             <line y2="10" stroke="black" />
-            <text y="25" text-anchor="middle" dy="0.32em">${i}</text>
+            <text y="45" text-anchor="middle" dy="0.32em">${i}</text>
           </g>
         `);
       }
