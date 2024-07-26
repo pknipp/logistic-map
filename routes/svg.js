@@ -16,7 +16,7 @@ router.get('/:rNmaxNmin', (req, res) => {
   } else {
     let svg = {size: {x: 1600, y: 900}, padding: {x: 100, y: 100}};
     let rect = {size: {x: svg.size.x - svg.padding.x, y: svg.size.y - 2 * svg.padding.y}};
-    svg.el = "<p>This rendering is optimized for a 16-inch MacBook Pro using Chrome at mid-magnification.</p>";
+    svg.el = "<p>This graphic is optimized for a 16-inch MacBook Pro using Chrome at mid-magnification.</p>";
     svg.el += `
       <svg
         height=${svg.size.y}
@@ -110,7 +110,14 @@ router.get('/:rNmaxNmin', (req, res) => {
       `;
       d += `${i ? "L" : "M"}${x},${y}`;
     });
-    let path = '<path d=' + d + ' stroke="black" fill="transparent" />';
+    let path = '
+      <path
+        d=' + d + '
+        stroke="black"
+        fill="transparent"
+        visibility="hidden"
+      />
+    ';
     svg.el = `${svg.el}<g>${points}</g>${path}`;
     let xLabel = `
       <g
