@@ -34,7 +34,7 @@ router.get('/:rNmaxNmin', (req, res) => {
         <text
           text-anchor="middle"
           dy="0.32em"
-          font="40"
+          font-size="40"
         >
           dynamics for growth-rate parameter = ${rFactor}
         </text>
