@@ -92,7 +92,7 @@ router.get('/:rNmaxNmin', (req, res) => {
     console.log("dN = ", dN);
     let xTicks = [];
     xys.forEach(([x, blah], i) => {
-      if (!(i % dN)) {
+      if (!(i % dN) && i !== xys.length - 1) {
         xTicks.push(`
           <g
             transform="translate(${x}, 0)"
