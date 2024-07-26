@@ -15,10 +15,10 @@ router.get('/:rNmaxNmin', (req, res) => {
     res.send(`<p>${error}</p>`);
   } else {
     let svg = {size: {x: 1600, y: 900}, padding: {x: 100, y: 100}};
-    let rect = {size: {x: svg.size.x - svg.padding.x, y: svg.size.y - svg.padding.y}};
+    let rect = {size: {x: svg.size.x - svg.padding.x, y: svg.size.y - 2 * svg.padding.y}};
     let inputs = `<b>Inputs:</b><ul><li> growth-rate parameter <I>r</I>: ${rFactor}</li><li> number of generations rendered: ${Number(params[1]) - (Number?.(params[3]) || 0)}</li></ul>`;
     svg.el = `<svg height=${svg.size.y} width=${svg.size.x}>`;
-    svg.el = `${svg.el}<g transform="translate(${svg.padding.x}, 0)">`;
+    svg.el = `${svg.el}<g transform="translate(${svg.padding.x}, ${svg.padding.y})">`;
     svg.el = `${svg.el}<rect height=${rect.size.y} width=${rect.size.x} fill="transparent" stroke="black" />`;
     let n = ys.length;
     // double size of dots w/each period-doubling transition
@@ -33,6 +33,7 @@ router.get('/:rNmaxNmin', (req, res) => {
       let number = `<text x="-25" stroke="black" text-anchor="middle" dy="0.32em">${i / nYTicks}</text>`;
       yTicks.push(`${g}${tick}${number}</g>`)
     }
+    // let yLabel = `<g transform = "translate(0, ${})>`
     svg.el = `${svg.el}<g>${yTicks}</g>`;
     let xys = ys.map((y, i) => ([
       rect.padding + i * (rect.size.x - 2 * rect.padding) / (n - 1),
