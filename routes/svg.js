@@ -110,7 +110,7 @@ router.get('/:rNmaxNmin', (req, res) => {
     svg.el = `${svg.el}<g>${points}</g>${path}`;
     let xLabel = `
       <g
-        transform = "translate(${rect.size.x / 2}, 20)"
+        transform = "translate(${rect.size.x / 2}, 40)"
       >
         <text
           text-anchor="middle"
@@ -135,7 +135,7 @@ router.get('/:rNmaxNmin', (req, res) => {
             transform="translate(${x}, 0)"
           >
             <line y2="10" stroke="black" />
-            <text y="45" text-anchor="middle" dy="0.32em">${i}</text>
+            <text y="25" text-anchor="middle" dy="0.32em">${i}</text>
           </g>
         `);
       }
