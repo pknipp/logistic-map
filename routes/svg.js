@@ -34,6 +34,7 @@ router.get('/:rNmaxNmin', (req, res) => {
         <text
           text-anchor="middle"
           dy="0.32em"
+          font="40"
         >
           dynamics for growth-rate parameter = ${rFactor}
         </text>
@@ -71,7 +72,7 @@ router.get('/:rNmaxNmin', (req, res) => {
     }
     let yLabel = `
       <g
-        transform = "translate(-50, ${rect.size.y / 2}) rotate(-90)"
+        transform = "translate(-55, ${rect.size.y / 2}) rotate(-90)"
       >
         <text
           text-anchor="middle"
@@ -110,13 +111,13 @@ router.get('/:rNmaxNmin', (req, res) => {
     svg.el = `${svg.el}<g>${points}</g>${path}`;
     let xLabel = `
       <g
-        transform = "translate(${rect.size.x / 2}, 40)"
+        transform = "translate(${rect.size.x / 2}, 45)"
       >
         <text
           text-anchor="middle"
           dy="0.32em"
         >
-          n (generation)
+          n (generations)
         </text>
       </g>
     `;
