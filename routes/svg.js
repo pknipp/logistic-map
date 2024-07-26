@@ -110,14 +110,14 @@ router.get('/:rNmaxNmin', (req, res) => {
       `;
       d += `${i ? "L" : "M"}${x},${y}`;
     });
-    let path = '
+    let path = `
       <path
         d=' + d + '
         stroke="black"
         fill="transparent"
         visibility="hidden"
       />
-    ';
+    `;
     svg.el = `${svg.el}<g>${points}</g>${path}`;
     let xLabel = `
       <g
