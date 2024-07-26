@@ -22,7 +22,7 @@ router.get('/:rNmaxNmin', (req, res) => {
         width=${svg.size.x}
       >
     `;
-    svg.el += <p>This rendering is optimized for a 16-inch MacBook Pro using Chrome at mid-magnification.</p>
+    svg.el += "<p>This rendering is optimized for a 16-inch MacBook Pro using Chrome at mid-magnification.</p>"
     svg.el += `
       <g
         transform="translate(${svg.padding.x}, ${svg.padding.y})"
