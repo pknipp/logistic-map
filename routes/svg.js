@@ -90,7 +90,7 @@ router.get('/:rNmaxNmin', (req, res) => {
     dN = dN > 5 ? 10 : dN > 2 ? 5 : 2;
     dN *= pow;
     let xTicks = [];
-    xys.forEach(([x, blah], i)) => {
+    xys.forEach(([x, blah], i) => {
       if (!(i % dN)) {
         xTicks.push(`
           <g
