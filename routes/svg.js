@@ -40,11 +40,22 @@ router.get('/:rNmaxNmin', (req, res) => {
     for (let i = 0; i <= nYTicks; i++) {
       y = rect.size.y - rect.padding - i * (rect.size.y - 2 * rect.padding) / nYTicks;
       let g = `<g transform="translate(0, ${y})">`;
-      let tick = `<line x2="-10" stroke="black" />`;
-      let number = `<text x="-25" stroke="black" text-anchor="middle" dy="0.32em">${i / nYTicks}</text>`;
+      let tick = `<line x2="-10" />`;
+      let number = `<text x="-25" text-anchor="middle" dy="0.32em">${i / nYTicks}</text>`;
       yTicks.push(`${g}${tick}${number}</g>`)
     }
-    let yLabel = `<g transform = "translate(0, ${rect.size.y / 2})"><text>x</text></g>`;
+    let yLabel = `
+      <g
+        transform = "translate(0, ${rect.size.y / 2}) rotate(90)"
+      >
+        <text
+          text-anchor="middle"
+          dy="0.32em"
+        >
+          x (population ratio)
+        </text>
+      </g>
+    `;
     svg.el = `${svg.el}${yLabel}<g>${yTicks}</g>`;
     let xys = ys.map((y, i) => ([
       rect.padding + i * (rect.size.x - 2 * rect.padding) / (n - 1),
