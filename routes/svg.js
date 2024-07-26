@@ -58,7 +58,7 @@ router.get('/:rNmaxNmin', (req, res) => {
     `;
     let xLabel = `
       <g
-        transform = "translate(-50, ${rect.size.y / 2}) rotate(-90)"
+        transform = "translate(-55, ${rect.size.y / 2}) rotate(-90)"
       >
         <text
           text-anchor="middle"
