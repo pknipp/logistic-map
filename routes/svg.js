@@ -31,7 +31,6 @@ router.get('/:rNmaxNmin', (req, res) => {
       </g>
     `;
     svg.el = `${svg.el}${title}<rect height=${rect.size.y} width=${rect.size.x} fill="transparent" stroke="black" />`;
-    console.log("svg.el = ", svg.el);
     let n = ys.length;
     // double size of dots w/each period-doubling transition
     let r = rect.size.x / 2 / (1 + (n - 1) / 2 ** (rFactor < 3 ? 0 : rFactor < 3.44949 ? 1 : rFactor < 3.54409 ? 2 : 3));
@@ -45,8 +44,8 @@ router.get('/:rNmaxNmin', (req, res) => {
       let number = `<text x="-25" stroke="black" text-anchor="middle" dy="0.32em">${i / nYTicks}</text>`;
       yTicks.push(`${g}${tick}${number}</g>`)
     }
-    // let yLabel = `<g transform = "translate(0, ${})>`
-    svg.el = `${svg.el}<g>${yTicks}</g>`;
+    let yLabel = `<g transform = "translate(0, ${rect.size.y / 2})"><text>x</text></g>`;
+    svg.el = `${svg.el}${yLabel}<g>${yTicks}</g>`;
     let xys = ys.map((y, i) => ([
       rect.padding + i * (rect.size.x - 2 * rect.padding) / (n - 1),
       rect.size.y - rect.padding - y * (rect.size.y - 2 * rect.padding),
