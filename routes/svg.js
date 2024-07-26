@@ -26,11 +26,10 @@ router.get('/:rNmaxNmin', (req, res) => {
           text-anchor="middle"
           dy="0.32em"
         >
-          dynamics for growth-rate parameter <i>r</i> = ${rFactor}
+          dynamics for growth-rate parameter = <i>${rFactor}</i>
         </text>
       </g>
     `;
-    svg.el = `${svg.el}${title}`;
     svg.el = `${svg.el}${title}<rect height=${rect.size.y} width=${rect.size.x} fill="transparent" stroke="black" />`;
     console.log("svg.el = ", svg.el);
     let n = ys.length;
