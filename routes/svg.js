@@ -90,8 +90,8 @@ router.get('/:rNmaxNmin', (req, res) => {
     dN = dN > 5 ? 10 : dN > 2 ? 5 : 2;
     dN *= pow;
     let xTicks = [];
-    for (const [x, blah] of xys) {
-      if (!(x % dN)) {
+    xys.forEach(([x, blah], i)) => {
+      if (!(i % dN)) {
         xTicks.push(`
           <g
             transform="translate(${x}, 0)"
@@ -101,7 +101,7 @@ router.get('/:rNmaxNmin', (req, res) => {
           </g>
         `);
       }
-    }
+    });
     svg.el = `${svg.el}${xTicks}</g></svg>`;
     res.send(svg.el);
   }
