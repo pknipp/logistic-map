@@ -82,13 +82,14 @@ router.get('/:rNmaxNmin', (req, res) => {
         </text>
       </g>
     `;
-    svg.el = `${svg.el}<g transform = "translate(0, ${rect.size.y})">${xLabel}</g>`;
+    svg.el = `${svg.el}<g transform = "translate(0, ${rect.size.y})">${xLabel}`;
     let nMax = 14.14 // from reverse-engineering storybook
     let dN = xys.length / nMax;
     let pow = 10 ** Math.floor(Math.log10(dN));
     dN /= pow;
     dN = dN > 5 ? 10 : dN > 2 ? 5 : 2;
     dN *= pow;
+    console.log("dN = ", dN);
     let xTicks = [];
     xys.forEach(([x, blah], i) => {
       if (!(i % dN)) {
@@ -102,7 +103,7 @@ router.get('/:rNmaxNmin', (req, res) => {
         `);
       }
     });
-    svg.el = `${svg.el}${xTicks}</g></svg>`;
+    svg.el = `${svg.el}${xTicks}</g></g></svg>`;
     res.send(svg.el);
   }
 });
