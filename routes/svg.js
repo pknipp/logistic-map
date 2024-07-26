@@ -56,6 +56,18 @@ router.get('/:rNmaxNmin', (req, res) => {
         </text>
       </g>
     `;
+    let xLabel = `
+      <g
+        transform = "translate(-50, ${rect.size.y / 2}) rotate(-90)"
+      >
+        <text
+          text-anchor="middle"
+          dy="0.32em"
+        >
+          x (population ratio)
+        </text>
+      </g>
+    `;
     svg.el = `${svg.el}${yLabel}<g>${yTicks}</g>`;
     let xys = ys.map((y, i) => ([
       rect.padding + i * (rect.size.x - 2 * rect.padding) / (n - 1),
@@ -68,7 +80,7 @@ router.get('/:rNmaxNmin', (req, res) => {
       d += `${i ? "L" : "M"}${x},${y}`;
     });
     let path = '<path d=' + d + ' stroke="black" fill="transparent" />';
-    svg.el = `${svg.el}<g>${points}</g>${path}</svg>`;
+    svg.el = `${svg.el}<g>${points}</g>${path}</g></svg>`;
     res.send(svg.el);
   }
 });
