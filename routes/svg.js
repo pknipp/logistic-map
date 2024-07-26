@@ -40,7 +40,7 @@ router.get('/:rNmaxNmin', (req, res) => {
     for (let i = 0; i <= nYTicks; i++) {
       y = rect.size.y - rect.padding - i * (rect.size.y - 2 * rect.padding) / nYTicks;
       let g = `<g transform="translate(0, ${y})">`;
-      let tick = `<line x2="-10" />`;
+      let tick = `<line x2="-10" stroke="black" />`;
       let number = `<text x="-25" text-anchor="middle" dy="0.32em">${i / nYTicks}</text>`;
       yTicks.push(`${g}${tick}${number}</g>`)
     }
@@ -83,7 +83,26 @@ router.get('/:rNmaxNmin', (req, res) => {
       </g>
     `;
     svg.el = `${svg.el}<g transform = "translate(0, ${rect.size.y})">${xLabel}</g>`;
-    svg.el = `${svg.el}</g></svg>`;
+    let nMax = 14.14 // from reverse-engineering storybook
+    let dN = xys.length / nMax;
+    let pow = 10 ** Math.floor(Math.log10(dN));
+    dN /= pow;
+    dN = dN > 5 ? 10 : dN > 2 ? 5 : 2;
+    dN *= pow;
+    let xTicks = [];
+    for (const [x, blah] of xys) {
+      if (!(x % dN)) {
+        xTicks.push(`
+          <g
+            transform="translate(${x}, 0)"
+          >
+            <line y2="10" stroke="black" />
+            <text y="25" text-anchor="middle" dy="0.32em">${x}</text>`
+          </g>
+        `);
+      }
+    }
+    svg.el = `${svg.el}${xTicks}</g></svg>`;
     res.send(svg.el);
   }
 });
