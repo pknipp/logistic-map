@@ -64,7 +64,7 @@ router.get('/:rNmaxNmin', (req, res) => {
           text-anchor="middle"
           dy="0.32em"
         >
-          x (population ratio)
+          <i>x</i> (population ratio)
         </text>
       </g>
     `;
