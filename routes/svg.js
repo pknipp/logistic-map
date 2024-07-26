@@ -29,12 +29,12 @@ router.get('/:rNmaxNmin', (req, res) => {
     `;
     let title = `
       <g
-        transform="translate(${rect.size.x / 2}, -20)"
+        transform="translate(${rect.size.x / 2}, -25)"
       >
         <text
           text-anchor="middle"
           dy="0.32em"
-          font-size="40"
+          font-size="30"
         >
           dynamics for growth-rate parameter = ${rFactor}
         </text>
@@ -72,11 +72,12 @@ router.get('/:rNmaxNmin', (req, res) => {
     }
     let yLabel = `
       <g
-        transform = "translate(-55, ${rect.size.y / 2}) rotate(-90)"
+        transform = "translate(-60, ${rect.size.y / 2}) rotate(-90)"
       >
         <text
           text-anchor="middle"
           dy="0.32em"
+          font-size="20"
         >
           x (population ratio)
         </text>
@@ -111,11 +112,12 @@ router.get('/:rNmaxNmin', (req, res) => {
     svg.el = `${svg.el}<g>${points}</g>${path}`;
     let xLabel = `
       <g
-        transform = "translate(${rect.size.x / 2}, 45)"
+        transform = "translate(${rect.size.x / 2}, 50)"
       >
         <text
           text-anchor="middle"
           dy="0.32em"
+          font-size="20"
         >
           n (generations)
         </text>
