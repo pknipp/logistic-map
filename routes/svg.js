@@ -20,11 +20,13 @@ router.get('/:rNmaxNmin', (req, res) => {
       <svg
         height=${svg.size.y}
         width=${svg.size.x}
-      >`;
+      >
+    `;
     svg.el += `
       <g
         transform="translate(${svg.padding.x}, ${svg.padding.y})"
-      >`;
+      >
+    `;
     let title = `
       <g
         transform="translate(${rect.size.x / 2}, -20)"
@@ -37,7 +39,15 @@ router.get('/:rNmaxNmin', (req, res) => {
         </text>
       </g>
     `;
-    svg.el = `${svg.el}${title}<rect height=${rect.size.y} width=${rect.size.x} fill="transparent" stroke="black" />`;
+    svg.el += `
+      ${title}
+      <rect
+        height=${rect.size.y}
+        width=${rect.size.x}
+        fill="transparent"
+        stroke="black"
+      />
+    `;
     let n = ys.length;
     // double size of dots w/each period-doubling transition
     let r = rect.size.x / 2 / (1 + (n - 1) / 2 ** (rFactor < 3 ? 0 : rFactor < 3.44949 ? 1 : rFactor < 3.54409 ? 2 : 3));
@@ -48,7 +58,15 @@ router.get('/:rNmaxNmin', (req, res) => {
       y = rect.size.y - rect.padding - i * (rect.size.y - 2 * rect.padding) / nYTicks;
       let g = `<g transform="translate(0, ${y})">`;
       let tick = `<line x2="-10" stroke="black" />`;
-      let number = `<text x="-25" text-anchor="middle" dy="0.32em">${i / nYTicks}</text>`;
+      let number = `
+        <text
+          x="-25"
+          text-anchor="middle"
+          dy="0.32em"
+        >
+          ${i / nYTicks}
+        </text>
+      `;
       yTicks.push(`${g}${tick}${number}</g>`)
     }
     let yLabel = `
@@ -64,7 +82,12 @@ router.get('/:rNmaxNmin', (req, res) => {
       </g>
     `;
 
-    svg.el = `${svg.el}${yLabel}<g>${yTicks}</g>`;
+    svg.el += `
+      ${yLabel}
+      <g>
+        ${yTicks}
+      </g>
+    `;
     let xys = ys.map((y, i) => ([
       rect.padding + i * (rect.size.x - 2 * rect.padding) / (n - 1),
       rect.size.y - rect.padding - y * (rect.size.y - 2 * rect.padding),
@@ -72,7 +95,15 @@ router.get('/:rNmaxNmin', (req, res) => {
     let points = "";
     let d = "";
     xys.forEach(([x, y], i) => {
-      points += `<circle cx=${x} cy=${y} r=${r} fill="transparent" stroke="black" />`;
+      points += `
+        <circle
+          cx=${x}
+          cy=${y}
+          r=${r}
+          fill="transparent"
+          stroke="black"
+        />
+      `;
       d += `${i ? "L" : "M"}${x},${y}`;
     });
     let path = '<path d=' + d + ' stroke="black" fill="transparent" />';
@@ -89,14 +120,13 @@ router.get('/:rNmaxNmin', (req, res) => {
         </text>
       </g>
     `;
-    svg.el = `${svg.el}<g transform = "translate(0, ${rect.size.y})">${xLabel}`;
+    svg.el += `<g transform = "translate(0, ${rect.size.y})">${xLabel}`;
     let nMax = 14.14 // from reverse-engineering storybook
     let dN = xys.length / nMax;
     let pow = 10 ** Math.floor(Math.log10(dN));
     dN /= pow;
     dN = dN > 5 ? 10 : dN > 2 ? 5 : 2;
     dN *= pow;
-    console.log("dN = ", dN);
     let xTicks = [];
     xys.forEach(([x, blah], i) => {
       if (!(i % dN) && i !== xys.length - 1) {
@@ -110,7 +140,7 @@ router.get('/:rNmaxNmin', (req, res) => {
         `);
       }
     });
-    svg.el = `${svg.el}${xTicks}</g></g></svg>`;
+    svg.el += `${xTicks}</g></g></svg>`;
     res.send(svg.el);
   }
 });
