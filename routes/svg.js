@@ -21,7 +21,7 @@ router.get('/:rNmaxNmin', (req, res) => {
       <button
         type="button"
       >
-        Toggle lines
+        Toggle line visibility
       </button>
     `;
     svg.el += `
@@ -180,7 +180,8 @@ router.get('/:rNmaxNmin', (req, res) => {
           path.setAttribute("visibility", !visible);
         };
         let path = document.getElementByTagName("path)[0];
-        path.addEventListener("click", e => {
+        let button = document.getElementByTagName("button")[0];
+        button.addEventListener("click", e => {
           toggleVisibility(path);
         });
       </script>
