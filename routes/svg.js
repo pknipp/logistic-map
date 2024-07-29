@@ -182,6 +182,7 @@ router.get('/:rNmaxNmin', (req, res) => {
         let path = document.getElementByTagName("path)[0];
         let button = document.getElementByTagName("button")[0];
         button.addEventListener("click", e => {
+          console.log("button was clicked");
           toggleVisibility(path);
         });
       </script>
