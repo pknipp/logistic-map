@@ -17,12 +17,15 @@ router.get('/:rNmaxNmin', (req, res) => {
     let svg = {size: {x: 1600, y: 900}, padding: {x: 100, y: 100}};
     let rect = {size: {x: svg.size.x - svg.padding.x, y: svg.size.y - 2 * svg.padding.y}};
     svg.el = "<p>This graphic is optimized for a 16-inch MacBook Pro using Chrome at mid-magnification.</p>";
-    svg.el += `
-      <button
-        type="button"
-      >
-        Toggle line visibility
-      </button>
+    svg.el = `
+      <span>
+        ${svg.el}
+        <button
+          type="button"
+        >
+          Toggle line visibility
+        </button>
+      </span>
     `;
     svg.el += `
       <svg
@@ -117,7 +120,6 @@ router.get('/:rNmaxNmin', (req, res) => {
       `;
       d += `${i ? "L" : "M"}${x},${y}`;
     });
-    console.log("before path is defined");
     let path = `
       <path
         d=${d}
@@ -126,7 +128,6 @@ router.get('/:rNmaxNmin', (req, res) => {
         visibility="visible"
       />
     `;
-    console.log("d = ", d);
     svg.el = `${svg.el}<g>${points}</g>${path}`;
     let xLabel = `
       <g
@@ -179,20 +180,16 @@ router.get('/:rNmaxNmin', (req, res) => {
       <script>
         const toggleVisibility = path => {
           let visible = path.getAttribute("visibility") === "visible";
-          console.log("visible? ", visible);
           path.setAttribute("visibility", visible ? "hidden" : "visible");
         };
         let path = document.getElementsByTagName("path")[0];
         let button = document.getElementsByTagName("button")[0];
-        console.log("button = ", button);
         button.addEventListener("click", e => {
-          console.log("button was clicked");
           toggleVisibility(path);
         });
       </script>
       </body>
     </html>`;
-    console.log("html = ", html);
     res.send(html);
   }
 });
