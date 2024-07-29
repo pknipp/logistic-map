@@ -18,14 +18,14 @@ router.get('/:rNmaxNmin', (req, res) => {
     let rect = {size: {x: svg.size.x - svg.padding.x, y: svg.size.y - 2 * svg.padding.y}};
     svg.el = "<p>This graphic is optimized for a 16-inch MacBook Pro using Chrome at mid-magnification.</p>";
     svg.el = `
-      <span>
+      <div>
         ${svg.el}
         <button
           type="button"
         >
           Toggle line visibility
         </button>
-      </span>
+      </div>
     `;
     svg.el += `
       <svg
