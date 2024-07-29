@@ -177,7 +177,7 @@ router.get('/:rNmaxNmin', (req, res) => {
       <script>
         const toggleVisibility = path => {
           let visible = path.getAttribute("visiblity") === "visible";
-          path.setAttribute("visibility", !visible);
+          path.setAttribute("visibility", visible ? "visible" : "hidden");
         };
         let path = document.getElementByTagName("path)[0];
         let button = document.getElementByTagName("button")[0];
