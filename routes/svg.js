@@ -117,6 +117,7 @@ router.get('/:rNmaxNmin', (req, res) => {
       `;
       d += `${i ? "L" : "M"}${x},${y}`;
     });
+    console.log("before path is defined");
     let path = `
       <path
         d=${d}
@@ -194,5 +195,4 @@ router.get('/:rNmaxNmin', (req, res) => {
     res.send(html);
   }
 });
-
 module.exports = router;
