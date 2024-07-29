@@ -153,7 +153,32 @@ router.get('/:rNmaxNmin', (req, res) => {
       }
     });
     svg.el += `${xTicks}</g></g></svg>`;
-    res.send(svg.el);
+
+    let html = `
+      <html
+        xml:lang="en"
+        lang="en"
+        xmlns="http://www.w3.org/1999/xhtml"
+      >
+      <head>
+      </head>
+      <body>
+    `;
+    html += `
+        ${svg.el}
+      </body>
+      <script>
+        const toggleVisibility = path => {
+          let visible = path.getAttribute("visiblity") === "visible";
+          path.setAttribute("visibility", !visible);
+        };
+        let path = document.getElementByTagName("path)[0];
+        path.addEventListener("click", e => {
+          toggleVisibility(path);
+        });
+      </script>
+    </html>`;
+    res.send(html);
   }
 });
 
