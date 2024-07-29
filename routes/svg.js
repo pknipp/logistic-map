@@ -125,6 +125,7 @@ router.get('/:rNmaxNmin', (req, res) => {
         visibility="visible"
       />
     `;
+    console.log("d = ", d);
     svg.el = `${svg.el}<g>${points}</g>${path}`;
     let xLabel = `
       <g
