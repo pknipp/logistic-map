@@ -182,8 +182,8 @@ router.get('/:rNmaxNmin', (req, res) => {
           let visible = path.getAttribute("visiblity") === "visible";
           path.setAttribute("visibility", visible ? "visible" : "hidden");
         };
-        let path = document.getElementByTagName("path")[0];
-        let button = document.getElementByTagName("button")[0];
+        let path = document.getElementsByTagName("path")[0];
+        let button = document.getElementsByTagName("button")[0];
         console.log("button = ", button);
         button.addEventListener("click", e => {
           console.log("button was clicked");
