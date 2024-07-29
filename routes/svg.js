@@ -175,6 +175,7 @@ router.get('/:rNmaxNmin', (req, res) => {
         ${svg.el}
       </body>
       <script>
+        console.log("top of script");
         const toggleVisibility = path => {
           let visible = path.getAttribute("visiblity") === "visible";
           path.setAttribute("visibility", visible ? "visible" : "hidden");
@@ -188,6 +189,7 @@ router.get('/:rNmaxNmin', (req, res) => {
         });
       </script>
     </html>`;
+    console.log("html = ", html);
     res.send(html);
   }
 });
