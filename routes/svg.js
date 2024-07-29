@@ -119,7 +119,7 @@ router.get('/:rNmaxNmin', (req, res) => {
     });
     let path = `
       <path
-        d="d"
+        d=d
         stroke="black"
         fill="transparent"
         visibility="visible"
