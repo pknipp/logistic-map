@@ -173,7 +173,7 @@ router.get('/:rNmaxNmin', (req, res) => {
     `;
     html += `
         ${svg.el}
-      </body>
+
       <script>
         console.log("top of script");
         const toggleVisibility = path => {
@@ -188,6 +188,7 @@ router.get('/:rNmaxNmin', (req, res) => {
           toggleVisibility(path);
         });
       </script>
+      </body>
     </html>`;
     console.log("html = ", html);
     res.send(html);
