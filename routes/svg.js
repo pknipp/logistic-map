@@ -31,16 +31,18 @@ router.get('/:rNmaxNmin', (req, res) => {
         <input
           type="radio"
           name="size"
-          id="size1"
-          value="1"
+          id="small"
+          value="small"
         />
         <label for="size1">small</label>
         <input
           type="radio"
           name="size"
-          id="size2"
+          id="medium"
+          value="medium"
+          checked
         />
-        <label for="size2">large</label>
+        <label for="size2">medium</label>
       </div>
     `;
     svg.el += `
@@ -127,6 +129,7 @@ router.get('/:rNmaxNmin', (req, res) => {
     xys.forEach(([x, y], i) => {
       points += `
         <circle
+          class="medium"
           cx=${x}
           cy=${y}
           r=${r}
@@ -198,13 +201,34 @@ router.get('/:rNmaxNmin', (req, res) => {
           let visible = path.getAttribute("visibility") === "visible";
           path.setAttribute("visibility", visible ? "hidden" : "visible");
         };
+        const setRadii = (circles, newSize) => {
+          let circle0 = circles[0];
+          let sizes = ["small", "medium", "large"];
+          let currentIndex = sizes.indexOf(circle0.getAttribute("class"));
+          let currentRadius = Number(circle0.getAttribute("r"));
+          let radiusFactors = [0.2, 1, 5];
+          let rawRadius = currentRadius / radiusFactors[currentIndex];
+          let newIndex = sizes.indexOf(newSize);
+          let newRadius = rawRadius * radiusFactors[newIndex];
+          circles.forEach(circle => {
+            circle.setAttribute("class", newSize);
+            circle.setAttribute("r", newRadius);
+          });
+        }
         let path = document.getElementsByTagName("path")[0];
         let button = document.getElementsByTagName("button")[0];
         button.addEventListener("click", e => {
           toggleVisibility(path);
         });
+        let circles = document.getElementsByTagName("circle");
+        let inputs = document.getElementsByTagName("input");
+        inputs.forEach(input => {
+          input.addEventListener("click", e => {
+            setRadii(circles, e.value);
+          });
+        });
       </script>
-      </body>
+    </body>
     </html>`;
     res.send(html);
   }
