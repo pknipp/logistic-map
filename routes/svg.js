@@ -145,7 +145,7 @@ router.get('/:rNmaxNmin', (req, res) => {
         d=${d}
         stroke="black"
         fill="transparent"
-        visibility="hidden"
+        visibility="visible"
         stroke-width="0.2"
       />
     `;
