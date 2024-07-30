@@ -230,6 +230,7 @@ router.get('/:rNmaxNmin', (req, res) => {
       </script>
     </body>
     </html>`;
+    console.log("html = ", html);
     res.send(html);
   }
 });
