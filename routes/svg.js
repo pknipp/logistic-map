@@ -48,7 +48,7 @@ router.get('/:rNmaxNmin', (req, res) => {
           dy="0.32em"
           font-size="30"
         >
-          dynamics for growth-rate parameter = ${rFactor}
+          logistics-map dynamics when growth-rate parameter = ${rFactor}
         </text>
       </g>
     `;
