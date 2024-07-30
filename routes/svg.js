@@ -17,7 +17,7 @@ router.get('/:rNmaxNmin', (req, res) => {
     let svg = {size: {x: 1600, y: 850}, padding: {x: 70, y: 60}};
     let rect = {size: {x: svg.size.x - svg.padding.x, y: svg.size.y - 2 * svg.padding.y}};
     svg.el = "<span>This graphic is optimized for a 16-inch MacBook Pro using Chrome at mid-magnification.</span>";
-    let sizes = ["small", "medium"];
+    let sizes = ["x-small", "small", "medium", "large", "x-large"];
     let radioButtons = sizes.map(size => (`
       <input
         type="radio"
@@ -26,6 +26,7 @@ router.get('/:rNmaxNmin', (req, res) => {
         value=${size}
       />
       <label for=${size}>${size}</label>
+      &nbsp;
     `));
     svg.el = `
       <div>
@@ -35,6 +36,7 @@ router.get('/:rNmaxNmin', (req, res) => {
         >
           Toggle line visibility
         </button>
+        &nbsp;
         <span>
           Circle size:
         </span>
@@ -199,10 +201,10 @@ router.get('/:rNmaxNmin', (req, res) => {
         };
         const setRadii = (circles, newSize) => {
           let circle0 = circles[0];
-          sizes = ["small", "medium"];
+          sizes = ["x-small", "small", "medium", "large", "x-large"];
           let currentIndex = sizes.indexOf(circle0.getAttribute("class"));
           let currentRadius = Number(circle0.getAttribute("r"));
-          let radiusFactors = [0.2, 1, 5];
+          let radiusFactors = [0.1, 0.3, 1, 3, 10];
           let rawRadius = currentRadius / radiusFactors[currentIndex];
           let newIndex = sizes.indexOf(newSize);
           let newRadius = rawRadius * radiusFactors[newIndex];
@@ -226,7 +228,6 @@ router.get('/:rNmaxNmin', (req, res) => {
       </script>
     </body>
     </html>`;
-    console.log("html = ", html);
     res.send(html);
   }
 });
