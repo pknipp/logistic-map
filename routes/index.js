@@ -6,7 +6,7 @@ router.get("", (req, res) => {
     let back = '<p align=center><a href="https://pknipp.github.io/math">Return</a> to the Math APIs page.<ul>';
     let bottom = "<p align=center>creator:&nbsp;<a href='https://pknipp.github.io/' target='_blank' rel='noopener noreferrer'>Peter Knipp</a></p></body>";
     let background = `<p><b>Background:</b> The <a href='https://en.wikipedia.org/wiki/Logistic_map' target='_blank' rel='noopener noreferrer'>logistics map</a> is a simple nonlinear difference equation that models the population of a species with each passing generation (or similar fixed length of time).  Here <I>x</I> represents the ratio of the population to its maximum possible value, the first term (<I>rx</I>) represents reproduction, the second term (-<I>rx</I><sup>2</sup>) represents starvation, and the growth-rate parameter <i>r</I> is between 0 and 4.  Despite this equation's simplicity and depending upon the value of <i>r</I>, the solutions can be remarkably complex, giving rise to period doubling and chaos. The table below summarizes some of this.  See the linked Wikipedia article for more information.
-    <table>
+    <table border>
         <tr>
             <th>r<sub>min</sub></th>
             <th>r<sub>max</sub></th>
@@ -38,7 +38,7 @@ router.get("", (req, res) => {
             <td>eight cycle</td>
         </tr>
         <tr>
-            <td colspan=3>more period doubling</td>
+            <td align=center colspan=3>more period doubling</td>
         </tr>
         <tr>
             <td>3.56995</td>
