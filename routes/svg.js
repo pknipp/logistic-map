@@ -30,10 +30,17 @@ router.get('/:rNmaxNmin', (req, res) => {
         </span>
         <input
           type="radio"
+          name="size"
+          id="size1"
+          value="1"
         />
+        <label for="size1">small</label>
         <input
           type="radio"
+          name="size"
+          id="size2"
         />
+        <label for="size2">large</label>
       </div>
     `;
     svg.el += `
