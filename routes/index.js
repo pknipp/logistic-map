@@ -49,11 +49,11 @@ router.get("", (req, res) => {
         </tr>
     </table>`;
     let instructions = "<p><b>Instructions:</b> After <tt>...herokuapp.com</tt> above you should type either <tt>/json/</tt> or <tt>/svg/</tt> depending upon whether you want the results returned numerically or graphically. After that you should type the following two to four numerical inputs separated by hyphens: <ol><li> growth-rate parameter <i>r</I></li><li> number of generations to be calculated</li><li> (optional) initial value of <i>x</i> (If omitted this will be generated randomly.)</li><li> (optional) first generation to include in the results (If omitted this will include all generations.)</li></ol>";
-    let html = top + title + back + background + instructions + bottom + `
+    let html = top + title + back + background + instructions + `
         <div>
-            For instance the url https://logistic-map-ed5bb7ec94fe.herokuapp.com/svg/3.54-100-0.42 should generate a graphic of an unstable two-cycle which eventually evolves to a stable four-cycle after about 25 generations.
+            For instance the url https://logistic-map-ed5bb7ec94fe.herokuapp.com/svg/3.54-100-0.42 should generate a graphic of an unstable two-cycle which evolves to a stable four-cycle after about 25 generations.
         </div>
-    `;
+    ` + bottom;
     res.send(html);
 });
 ["json", "svg"].forEach(route => router.use(`/${route}`, require(`./${route}`)));
