@@ -8,14 +8,42 @@ router.get("", (req, res) => {
     let background = `<p><b>Background:</b> The <a href='https://en.wikipedia.org/wiki/Logistic_map' target='_blank' rel='noopener noreferrer'>logistics map</a> is a simple nonlinear difference equation that models the population of a species with each passing generation (or similar fixed length of time).  Here <I>x</I> represents the ratio of the population to its maximum possible value, the first term (<I>rx</I>) represents reproduction, the second term (-<I>rx</I><sup>2</sup>) represents starvation, and the growth-rate parameter <i>r</I> is between 0 and 4.  Despite this equation's simplicity and depending upon the value of <i>r</I>, the solutions can be remarkably complex, giving rise to period doubling and chaos. The table below summarizes some of this.  See the linked Wikipedia article for more information.
     <table>
         <tr>
-            <th>r<sup>min</sup></th>
-            <th>r<sup>max</sup></th>
+            <th>r<sub>min</sub></th>
+            <th>r<sub>max</sub></th>
             <th>asymptotic behavior</th>
         </tr>
         <tr>
             <td>0</td>
             <td>1</td>
             <td>converges to zero</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>3</td>
+            <td>converges to nonzero value</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>3.44949</td>
+            <td>two cycle</td>
+        </tr>
+        <tr>
+            <td>3.44949</td>
+            <td>3.54409</td>
+            <td>four cycle</td>
+        </tr>
+        <tr>
+            <td>3.54409</td>
+            <td>?</td>
+            <td>eight cycle</td>
+        </tr>
+        <tr>
+            <td colspan=3>more period doubling</td>
+        </tr>
+        <tr>
+            <td>3.56995</td>
+            <td>4</td>
+            <td>chaos</td>
         </tr>
     </table>`;
     let instructions = "<p><b>Instructions:</b> After <tt>...herokuapp.com</tt> above you should type either <tt>/json/</tt> or <tt>/svg/</tt> depending upon whether you want the results returned numerically or graphically. After that you should type the following two to four numerical inputs separated by hyphens: <ol><li> growth-rate parameter <i>r</I></li><li> number of generations to be calculated</li><li> (optional) initial value of <i>x</i> (If omitted this will be generated randomly.)</li><li> (optional) first generation to include in the results (If omitted this will include all generations.)</li></ol>";
