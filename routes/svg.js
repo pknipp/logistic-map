@@ -228,7 +228,7 @@ router.get('/:rNmaxNmin', (req, res) => {
         inputs.forEach(input => {
           input.addEventListener("click", e => {
             console.log("e = ", e);
-            setRadii(circles, e.value);
+            setRadii(circles, e.target.split("#").pop());
           });
         });
       </script>
