@@ -25,13 +25,16 @@ router.get('/:rNmaxNmin', (req, res) => {
         >
           Toggle line visibility
         </button>
+        <span>
+          Circle size:
+        </span>
+        <input
+          type="radio"
+        />
+        <input
+          type="radio"
+        />
       </div>
-      <input
-        type="radio"
-      />
-      <input
-        type="radio"
-      />
     `;
     svg.el += `
       <svg
