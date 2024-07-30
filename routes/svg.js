@@ -33,6 +33,7 @@ router.get('/:rNmaxNmin', (req, res) => {
     svg.el = `
       <div>
         ${svg.el}
+        &nbsp;
         <button
           type="button"
         >
@@ -230,7 +231,6 @@ router.get('/:rNmaxNmin', (req, res) => {
       </script>
     </body>
     </html>`;
-    console.log("html = ", html);
     res.send(html);
   }
 });
