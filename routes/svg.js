@@ -25,7 +25,7 @@ router.get('/:rNmaxNmin', (req, res) => {
         name="size"
         id=${size}
         value=${size}
-        checked=${size === "medium"}
+        ${size === "medium" ? "checked" : ""}
       />
       <label for=${size}>${size}</label>
       &nbsp;
