@@ -14,7 +14,7 @@ router.get('/:rNmaxNmin', (req, res) => {
     res.status(500);
     res.send(`<p>${error}</p>`);
   } else {
-    let svg = {size: {x: 1600, y: 900}, padding: {x: 70, y: 60}};
+    let svg = {size: {x: 1600, y: 850}, padding: {x: 70, y: 60}};
     let rect = {size: {x: svg.size.x - svg.padding.x, y: svg.size.y - 2 * svg.padding.y}};
     svg.el = "<span>This graphic is optimized for a 16-inch MacBook Pro using Chrome at mid-magnification.</span>";
     svg.el = `
