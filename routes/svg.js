@@ -81,7 +81,7 @@ router.get('/:rNmaxNmin', (req, res) => {
     `;
     let n = ys.length;
     // double size of dots w/each period-doubling transition
-    let r = Math.min(rect.size.x / 2 / (1 + (n - 1) / 2 ** (rFactor < 3 ? 0 : rFactor < 3.44949 ? 1 : rFactor < 3.54409 ? 2 : 3)), rect.size.y / 20) / radii[radii.length - 1];
+    let r = Math.min(rect.size.x / 2 / (1 + (n - 1) / 2 ** (rFactor < 3 ? 0 : rFactor < 3.44949 ? 1 : rFactor < 3.54409 ? 2 : 3)), rect.size.y / 20);
     rect.padding = r;
     let yTicks = [];
     let nYTicks = 10;
@@ -132,7 +132,7 @@ router.get('/:rNmaxNmin', (req, res) => {
           class="medium"
           cx=${x}
           cy=${y}
-          r=${r}
+          r=${r * radii[2] / radii[4]}
           fill="transparent"
           stroke="black"
         />
