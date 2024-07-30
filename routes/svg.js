@@ -26,6 +26,12 @@ router.get('/:rNmaxNmin', (req, res) => {
           Toggle line visibility
         </button>
       </div>
+      <input
+        type="radio"
+      />
+      <input
+        type="radio"
+      />
     `;
     svg.el += `
       <svg
@@ -176,8 +182,7 @@ router.get('/:rNmaxNmin', (req, res) => {
       <body>
     `;
     html += `
-        ${svg.el}
-
+      ${svg.el}
       <script>
         const toggleVisibility = path => {
           let visible = path.getAttribute("visibility") === "visible";
