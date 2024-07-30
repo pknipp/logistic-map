@@ -18,12 +18,14 @@ router.get('/:rNmaxNmin', (req, res) => {
     let rect = {size: {x: svg.size.x - svg.padding.x, y: svg.size.y - 2 * svg.padding.y}};
     svg.el = "<span>This graphic is optimized for a 16-inch MacBook Pro using Chrome at mid-magnification.</span>";
     let sizes = ["x-small", "small", "medium", "large", "x-large"];
+    let radii = [0.1, 0.3, 1, 3, 10];
     let radioButtons = sizes.map(size => (`
       <input
         type="radio"
         name="size"
         id=${size}
         value=${size}
+        checked=${size === "medium"}
       />
       <label for=${size}>${size}</label>
       &nbsp;
@@ -40,7 +42,7 @@ router.get('/:rNmaxNmin', (req, res) => {
         <span>
           Circle size:
         </span>
-        ${radioButtons}
+        ${radioButtons.join("")}
       </div>
     `;
     svg.el += `
@@ -79,7 +81,7 @@ router.get('/:rNmaxNmin', (req, res) => {
     `;
     let n = ys.length;
     // double size of dots w/each period-doubling transition
-    let r = Math.min(rect.size.x / 2 / (1 + (n - 1) / 2 ** (rFactor < 3 ? 0 : rFactor < 3.44949 ? 1 : rFactor < 3.54409 ? 2 : 3)), rect.size.y / 20);
+    let r = Math.min(rect.size.x / 2 / (1 + (n - 1) / 2 ** (rFactor < 3 ? 0 : rFactor < 3.44949 ? 1 : rFactor < 3.54409 ? 2 : 3)), rect.size.y / 20) / radii[radii.length - 1];
     rect.padding = r;
     let yTicks = [];
     let nYTicks = 10;
