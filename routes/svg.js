@@ -125,7 +125,7 @@ router.get('/:rNmaxNmin', (req, res) => {
         d=${d}
         stroke="black"
         fill="transparent"
-        visibility="visible"
+        visibility="hidden"
       />
     `;
     svg.el = `${svg.el}<g>${points}</g>${path}`;
