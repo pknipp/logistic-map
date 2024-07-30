@@ -198,17 +198,14 @@ router.get('/:rNmaxNmin', (req, res) => {
           path.setAttribute("visibility", visible ? "hidden" : "visible");
         };
         const setRadii = (circles, newSize) => {
-          console.log("newSize = ", newSize);
           let circle0 = circles[0];
-          let sizes = ["small", "medium", "large"];
+          let sizes = ${sizes};
           let currentIndex = sizes.indexOf(circle0.getAttribute("class"));
           let currentRadius = Number(circle0.getAttribute("r"));
           let radiusFactors = [0.2, 1, 5];
           let rawRadius = currentRadius / radiusFactors[currentIndex];
           let newIndex = sizes.indexOf(newSize);
-          console.log("newIndex = ", newIndex);
           let newRadius = rawRadius * radiusFactors[newIndex];
-          console.log("newRadius = ", newRadius);
           circles.forEach(circle => {
             circle.setAttribute("class", newSize);
             circle.setAttribute("r", newRadius);
@@ -223,7 +220,6 @@ router.get('/:rNmaxNmin', (req, res) => {
         let inputs = Array.from(document.getElementsByTagName("input"));
         inputs.forEach(input => {
           input.addEventListener("click", e => {
-            console.log("e.target = ", e.target);
             setRadii(circles, e.target.getAttribute("value"));
           });
         });
