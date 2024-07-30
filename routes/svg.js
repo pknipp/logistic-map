@@ -199,11 +199,12 @@ router.get('/:rNmaxNmin', (req, res) => {
         };
         const setRadii = (circles, newSize) => {
           let circle0 = circles[0];
-          let currentIndex = [${sizes}].indexOf(circle0.getAttribute("class"));
+          sizes = ["small", "medium"];
+          let currentIndex = sizes.indexOf(circle0.getAttribute("class"));
           let currentRadius = Number(circle0.getAttribute("r"));
           let radiusFactors = [0.2, 1, 5];
           let rawRadius = currentRadius / radiusFactors[currentIndex];
-          let newIndex = [${sizes}].indexOf(newSize);
+          let newIndex = sizes.indexOf(newSize);
           let newRadius = rawRadius * radiusFactors[newIndex];
           circles.forEach(circle => {
             circle.setAttribute("class", newSize);
