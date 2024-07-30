@@ -34,11 +34,13 @@ router.get("", (req, res) => {
         </tr>
         <tr>
             <td>3.54409</td>
-            <td>?</td>
+            <td>3.56441</td>
             <td>eight cycle</td>
         </tr>
         <tr>
-            <td align=center colspan=3>more period doubling</td>
+            <td>3.56441</td>
+            <td>3.56995</td>
+            <td>more period doubling</td>
         </tr>
         <tr>
             <td>3.56995</td>
