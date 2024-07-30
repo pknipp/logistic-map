@@ -37,7 +37,7 @@ router.get('/:rNmaxNmin', (req, res) => {
         <button
           type="button"
         >
-          Toggle line visibility
+          Toggle line-visibility
         </button>
         &nbsp;
         <span>
