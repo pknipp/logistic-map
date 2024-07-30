@@ -210,6 +210,7 @@ router.get('/:rNmaxNmin', (req, res) => {
           let rawRadius = currentRadius / radiusFactors[currentIndex];
           let newIndex = sizes.indexOf(newSize);
           let newRadius = rawRadius * radiusFactors[newIndex];
+          console.log("newRadius = ", newRadius);
           circles.forEach(circle => {
             circle.setAttribute("class", newSize);
             circle.setAttribute("r", newRadius);
