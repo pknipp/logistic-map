@@ -220,8 +220,8 @@ router.get('/:rNmaxNmin', (req, res) => {
         button.addEventListener("click", e => {
           toggleVisibility(path);
         });
-        let circles = document.getElementsByTagName("circle");
-        let inputs = document.getElementsByTagName("input");
+        let circles = Array.from(document.getElementsByTagName("circle"));
+        let inputs = Array.from(document.getElementsByTagName("input"));
         inputs.forEach(input => {
           input.addEventListener("click", e => {
             setRadii(circles, e.value);
