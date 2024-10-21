@@ -3,9 +3,8 @@ router.get("", (req, res) => {
     // Following are used to wrap html string created for server-side rendering.
     let top = "<head><title>Logistic map</title></head><body>";
     let title = "<h3><p align=center>Logistic map: <i>x</i><sub><i>n</I>+1</sub> = <i>rx<sub>n</sub></i>(1 - <i>x<sub>n</sub></i>)</p></h3>";
-    let back = '<p align=center><a href="https://pknipp.github.io/math">Return</a> to the Math APIs page.</p>';
+    let back = '<p align=center><a href="https://pknipp.github.io/math">Return</a> to the Math APIs page.</br>';
     back += `
-    <p align=center>
         creator:&nbsp;
         <a
             href='https://pknipp.github.io/'
