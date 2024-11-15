@@ -198,6 +198,7 @@ router.get('/:rNmaxNmin', (req, res) => {
       <head>
       </head>
       <body>
+      <div style="padding-top: 5px; padding-left: 10px; padding-right: 30px;">
     `;
     html += `
       ${svg.el}
@@ -233,6 +234,7 @@ router.get('/:rNmaxNmin', (req, res) => {
           });
         });
       </script>
+      </div>
     </body>
     </html>`;
     res.send(html);

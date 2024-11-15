@@ -1,7 +1,7 @@
 const router = require('express').Router();
 router.get("", (req, res) => {
     // Following are used to wrap html string created for server-side rendering.
-    let top = "<head><title>Logistic map</title></head><body>";
+    let top = '<head><title>Logistic map</title></head><body><div style="padding-top: 5px; padding-left: 10px; padding-right: 30px;">';
     let title = "<h3><p align=center>Logistic map: <i>x</i><sub><i>n</I>+1</sub> = <i>rx<sub>n</sub></i>(1 - <i>x<sub>n</sub></i>)</p></h3>";
     let back = '<p align=center><a href="https://pknipp.github.io/math">Return</a> to the Math APIs page.</br>';
     back += `
@@ -71,7 +71,7 @@ router.get("", (req, res) => {
     let html = top + title + back + background + instructions + `
         <div>
             For instance the url https://logistic-map-ed5bb7ec94fe.herokuapp.com/svg/3.54-100-0.42 should generate a graphic of an unstable two-cycle which evolves to a stable four-cycle after about 25 generations.
-        </div></body>`;
+        </div></div></body>`;
     res.send(html);
 });
 ["json", "svg"].forEach(route => router.use(`/${route}`, require(`./${route}`)));
