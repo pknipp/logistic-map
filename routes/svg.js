@@ -195,7 +195,7 @@ router.get('/:rNmaxNmin', (req, res) => {
       <head>
       </head>
       <body>
-      <div style="padding-top: 5px; padding-left: 20px; padding-right: 20px;">
+      <div style="padding-top: 20px; padding-left: 40px; padding-right: 40px;">
     `;
     html += `
       ${svg.el}
