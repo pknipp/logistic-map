@@ -1,7 +1,7 @@
 const router = require('express').Router();
 router.get("", (req, res) => {
     // Following are used to wrap html string created for server-side rendering.
-    let top = '<head><title>Logistic map</title></head><body><div style="padding-top: 5px; padding-left: 10px; padding-right: 30px;">';
+    let top = '<head><title>Logistic map</title></head><body><div style="padding-top: 5px; padding-left: 20px; padding-right: 20px;">';
     let title = "<h3><p align=center>Logistic map: <i>x</i><sub><i>n</I>+1</sub> = <i>rx<sub>n</sub></i>(1 - <i>x<sub>n</sub></i>)</p></h3>";
     let back = '<p align=center><a href="https://pknipp.github.io/math">Return</a> to the Math APIs page.</br>';
     back += `

@@ -186,9 +186,6 @@ router.get('/:rNmaxNmin', (req, res) => {
     });
     svg.el += `${xTicks}</g></g></svg>`;
     svg.el += '<p align=center><a href="https://logistic-map-ed5bb7ec94fe.herokuapp.com">Return</a> to main page.</br>';
-    // `<p align=center>creator:&nbsp;<a href='https://pknipp.github.io/' target='_blank' rel='noopener noreferrer'>Peter Knipp</a><br/>repo:&nbsp;<a href='https://github.com/pknipp/eigen'target='_blank' rel='noopener noreferrer'>
-    // // https://github.com/pknipp/logistic-map</a></p></body>`;
-
     let html = `
       <html
         xml:lang="en"
@@ -198,7 +195,7 @@ router.get('/:rNmaxNmin', (req, res) => {
       <head>
       </head>
       <body>
-      <div style="padding-top: 5px; padding-left: 10px; padding-right: 30px;">
+      <div style="padding-top: 5px; padding-left: 20px; padding-right: 20px;">
     `;
     html += `
       ${svg.el}
