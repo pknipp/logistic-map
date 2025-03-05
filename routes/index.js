@@ -74,5 +74,7 @@ router.get("", (req, res) => {
         </div></div></body>`;
     res.send(html);
 });
-["api", ""].forEach(route => router.use(`/${route}`, require(`./${route}`)));
+// ["api", ""].forEach(route => router.use(`/${route}`, require(`./${route}`)));
+router.use("/", require(./svg.js));
+router.use("/api", require(./json.js));
 module.exports = router;
