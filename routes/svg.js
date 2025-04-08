@@ -14,7 +14,7 @@ router.get('/:rNmaxNmin', (req, res) => {
     res.status(500);
     res.send(`<p>${error}</p>`);
   } else {
-    let svg = {size: {x: 1600, y: 850}, padding: {x: 70, y: 60}};
+    let svg = {size: {x: 1100, y: 560}, padding: {x: 70, y: 60}};
     let rect = {size: {x: svg.size.x - svg.padding.x, y: svg.size.y - 2 * svg.padding.y}};
     svg.el = "<span>This graphic is optimized for a 16-inch MacBook Pro using Chrome at mid-magnification.</span>";
     let sizes = ["small", "medium", "large"];
@@ -185,7 +185,7 @@ router.get('/:rNmaxNmin', (req, res) => {
       }
     });
     svg.el += `${xTicks}</g></g></svg>`;
-    svg.el += '<p align=center><a href="https://logistic-map-ed5bb7ec94fe.herokuapp.com">Return</a> to main page.</br>';
+    svg.el += '<p align=center><a href="https://logistic-map-ed5bb7ec94fe.herokuapp.com">Return</a> to instructions page.</br>';
     let html = `
       <html
         xml:lang="en"
