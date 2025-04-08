@@ -71,7 +71,7 @@ router.get("", (req, res) => {
     const urlFrag = 'herokuapp.com/3.54-100-0.42';
     let html = top + title + back + background + instructions + `
         <div>
-            <b>Example:</b> <a href='https://logistic-map-ed5bb7ec94fe.${urlFrag}'>Click here</a> to see case the for the url ...${urlFrag}, which results in an unstable two-cycle that evolves to a stable four-cycle after about 25 generations.
+            <b>Example:</b> <a href='https://logistic-map-ed5bb7ec94fe.${urlFrag}'>Click here</a> for the url ...${urlFrag}, which results in an unstable two-cycle evolving to a stable four-cycle after about 25 generations.
         </div></div>
         </body>`;
     res.send(html);
